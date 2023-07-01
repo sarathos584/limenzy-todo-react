@@ -4,21 +4,21 @@ import NewGoal from "./Components/new-goal/NewGoal";
 import GoalList from "./Components/goal-list/GoalList";
 import React, { useState } from "react";
 function App() {
- const [goals,setCourseGoals] = useState([
-  {id:1,text:'First course'},
-  {id:2,text:'Second course'},
-  {id:3,text:'three course'}
- ])
+  const [goals, setCourseGoals] = useState([
+    { id: 1, text: "First course" },
+    { id: 2, text: "Second course" },
+    { id: 3, text: "three course" },
+  ]);
 
- addNewGoalHandler = (newGoal)=>{
-  setCourseGoals((prevGoal)=>{
-    console.log(prevGoal)
-  })
- }
+  const addNewGoalHandler = (newGoal) => {
+    setCourseGoals((prevGoal) => prevGoal.concat(newGoal));
+    console.log(goals)
+  };
   return (
     <div className="App container-fluid">
       <h1>Study React</h1>
-      <NewGoal />
+      <NewGoal onAddGoal={addNewGoalHandler} />
+      <GoalList goals={goals}/>
     </div>
   );
 }

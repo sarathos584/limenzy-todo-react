@@ -10,8 +10,7 @@ function NewGoal(props) {
       text:enteredText
     }
     console.log(enteredText)
-// -----------------------
-
+    props.onAddGoal(newGoalData)
     setEnteredText('')
   }
 
